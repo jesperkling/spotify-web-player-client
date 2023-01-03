@@ -9,7 +9,7 @@ const spotifyApi = new SpotifyWebApi({
   clientId: "2353e1ccf7464652a66074ee88dc47b5",
 });
 
-export default function Dashboard({ code }) {
+export default function Search({ code }) {
   const accessToken = useAuth(code);
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
