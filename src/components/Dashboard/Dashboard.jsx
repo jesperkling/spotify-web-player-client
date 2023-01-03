@@ -4,12 +4,15 @@ import TrackSearchResult from "../TrackSearchResult/TrackSearchResult";
 import Player from "../Player/Player";
 import { Container, Form } from "react-bootstrap";
 import SpotifyWebApi from "spotify-web-api-node";
+import Sidebar from "../Sidebar/Sidebar";
+import Body from "../Body/Body";
+import Right from "../Right/Right";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "2353e1ccf7464652a66074ee88dc47b5",
 });
 
-export default function Search({ code }) {
+export default function Dashboard({ code }) {
   const accessToken = useAuth(code);
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -58,6 +61,9 @@ export default function Search({ code }) {
 
   return (
     <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
+      <Sidebar />
+      <Body />
+      <Right />
       <Form.Control
         type="search"
         placeholder="Search"
