@@ -61,9 +61,6 @@ export default function Dashboard({ code }) {
 
   return (
     <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
-      <Sidebar />
-      <Body />
-      <Right />
       <Form.Control
         type="search"
         placeholder="Search"
@@ -79,6 +76,9 @@ export default function Dashboard({ code }) {
           />
         ))}
       </div>
+      <Sidebar />
+      <Body />
+      <Right />
       <div>
         <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
       </div>
