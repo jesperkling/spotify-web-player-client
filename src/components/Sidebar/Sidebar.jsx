@@ -1,5 +1,9 @@
 import React from "react";
-import "./sidebar.css";
+
+// styles
+import "./Sidebar.css";
+
+// icons
 import { HiHome } from "react-icons/hi";
 import { RiCompassFill } from "react-icons/ri";
 import { FaMicrophone } from "react-icons/fa";

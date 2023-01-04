@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
+
+// hooks
 import useAuth from "../../hooks/useAuth";
+
+// api
+import SpotifyWebApi from "spotify-web-api-node";
+
+// components
 import TrackSearchResult from "../TrackSearchResult/TrackSearchResult";
 import Player from "../Player/Player";
-import SpotifyWebApi from "spotify-web-api-node";
 import Sidebar from "../Sidebar/Sidebar";
 import Body from "../Body/Body";
 import Right from "../Right/Right";
