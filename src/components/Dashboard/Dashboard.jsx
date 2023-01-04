@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import TrackSearchResult from "../TrackSearchResult/TrackSearchResult";
 import Player from "../Player/Player";
-import { Container, Form } from "react-bootstrap";
 import SpotifyWebApi from "spotify-web-api-node";
 import Sidebar from "../Sidebar/Sidebar";
 import Body from "../Body/Body";
@@ -60,14 +59,17 @@ export default function Dashboard({ code }) {
   }, [search, accessToken]);
 
   return (
-    <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
-      <Form.Control
-        type="search"
-        placeholder="Search"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <div className="flex-grow-1 my-2" style={{ overflowY: "auto" }}>
+    <div>
+      <form>
+        <input
+          className="w-full border-gray-300 rounded"
+          type="search"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </form>
+      <div>
         {searchResults.map((track) => (
           <TrackSearchResult
             track={track}
@@ -82,6 +84,6 @@ export default function Dashboard({ code }) {
       <div>
         <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
       </div>
-    </Container>
+    </div>
   );
 }

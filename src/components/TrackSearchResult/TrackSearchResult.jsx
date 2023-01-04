@@ -7,7 +7,7 @@ export default function TrackSearchResult({ track, chooseTrack }) {
 
   return (
     <div
-      className="d-flex m-2 align-items-center"
+      className="flex flex-row p-2"
       style={{ cursor: "pointer" }}
       onClick={handlePlay}
     >
@@ -16,9 +16,9 @@ export default function TrackSearchResult({ track, chooseTrack }) {
         style={{ height: "64px", width: "64px" }}
         alt="album-art"
       />
-      <div className="ml-3">
+      <div className="p-2">
         <div>{track.title}</div>
-        <div className="text-muted">{track.artist}</div>
+        <div className="text-slate-500">{track.artist}</div>
       </div>
     </div>
   );
