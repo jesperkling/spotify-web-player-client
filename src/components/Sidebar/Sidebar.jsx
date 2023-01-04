@@ -15,12 +15,14 @@ export default function Sidebar() {
   return (
     <div className="fixed top-0 z-40 flex flex-col p-4 bg-black items-center w-[90px] h-screen space-y-8">
       <img src="" alt="logo" />
-      <HiHome className="sidebarIcon" />
-      <RiCompassFill className="sidebarIcon" />
-      <FaMicrophone className="sidebarIcon" />
-      <HiChartBar className="sidebarIcon" />
-      <ImClock className="sidebarIcon " />
-      <HiDotsHorizontal className="sidebarIcon" />
+      <div className="flex flex-col space-y-8">
+        <HiHome className="sidebarIcon" />
+        <RiCompassFill className="sidebarIcon" />
+        <FaMicrophone className="sidebarIcon" />
+        <HiChartBar className="sidebarIcon" />
+        <ImClock className="sidebarIcon " />
+        <HiDotsHorizontal className="sidebarIcon" />
+      </div>
     </div>
   );
 }
