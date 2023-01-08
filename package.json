@@ -16,6 +16,7 @@
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "react-spotify-web-playback": "^0.10.1",
+    "recoil": "^0.7.6",
     "spotify-web-api-js": "^1.5.2",
     "spotify-web-api-node": "^5.0.2",
     "web-vitals": "^2.1.4"
