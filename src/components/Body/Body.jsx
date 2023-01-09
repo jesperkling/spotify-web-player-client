@@ -5,6 +5,9 @@ import { useEffect } from "react";
 import Search from "../Search/Search";
 import Poster from "../Poster/Poster";
 
+// styles
+import "./Body.css";
+
 export default function Body({ accessToken, spotifyApi, chooseTrack }) {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
@@ -80,6 +83,28 @@ export default function Body({ accessToken, spotifyApi, chooseTrack }) {
                   chooseTrack={chooseTrack}
                 />
               ))}
+      </div>
+
+      <div className="flex gap-x-8 absolute min-w-full md:relative ml-6">
+        {/* Genres */}
+        <div className="hidden xl:inline max-w-[270px]">
+          <h2 className="font-bold mb-3">Genres</h2>
+          <div className="flex gap-x-2 gap-y-2.5 flex-wrap mb-3">
+            <div className="genre">Classic</div>
+            <div className="genre">House</div>
+            <div className="genre">Minimal</div>
+            <div className="genre">Hip-Hop</div>
+            <div className="genre">Electronic</div>
+            <div className="genre">Chillout</div>
+            <div className="genre">Blues</div>
+            <div className="genre">Country</div>
+            <div className="genre">Techno</div>
+            <div className="genre">Rock</div>
+          </div>
+          <button className="text-[13px] py-3.5 px-4 border rounded-2xl w-full font-bold transition ease-out">
+            All Genres
+          </button>
+        </div>
       </div>
     </div>
   );
