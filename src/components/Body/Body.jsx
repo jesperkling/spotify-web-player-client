@@ -4,6 +4,7 @@ import { useEffect } from "react";
 // components
 import Search from "../Search/Search";
 import Poster from "../Poster/Poster";
+import Track from "../Track/Track";
 
 // styles
 import "./Body.css";
@@ -42,6 +43,7 @@ export default function Body({ accessToken, spotifyApi, chooseTrack }) {
 
   useEffect(() => {
     if (!accessToken) return;
+    if (!spotifyApi) return;
 
     spotifyApi.getNewReleases().then((res) => {
       setNewReleases(
@@ -56,7 +58,7 @@ export default function Body({ accessToken, spotifyApi, chooseTrack }) {
         })
       );
     });
-  }, [accessToken, spotifyApi]);
+  }, [accessToken, spotifyApi, newReleases]);
 
   console.log(newReleases);
 
@@ -104,6 +106,34 @@ export default function Body({ accessToken, spotifyApi, chooseTrack }) {
           <button className="text-[13px] py-3.5 px-4 border rounded-2xl w-full font-bold transition ease-out">
             All Genres
           </button>
+        </div>
+
+        {/* Tracks */}
+        <div>
+          <h2 className="font-bold mb-3">
+            {results.length === 0 ? "New Releases" : "Tracks"}
+          </h2>
+          <div className="space-y-3 border-2 rounded-2xl p-3 overflow-y-scroll h-[1000px] md:h-96 w-[830px]">
+            {results.length === 0
+              ? newReleases
+                  .slice(4, newReleases.length)
+                  .map((track) => (
+                    <Track
+                      key={track.id}
+                      track={track}
+                      chooseTrack={chooseTrack}
+                    />
+                  ))
+              : results
+                  .slice(4, results.length)
+                  .map((track) => (
+                    <Track
+                      key={track.id}
+                      track={track}
+                      chooseTrack={chooseTrack}
+                    />
+                  ))}
+          </div>
         </div>
       </div>
     </div>
