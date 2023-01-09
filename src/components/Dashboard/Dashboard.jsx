@@ -33,7 +33,7 @@ export default function Dashboard({ code }) {
   }, [accessToken]);
 
   return (
-    <div>
+    <div className="flex min-h-screen min-w-max lg:pb-24">
       <Sidebar />
       <Body
         accessToken={accessToken}
