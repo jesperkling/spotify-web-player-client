@@ -17,7 +17,7 @@ export default function RecentlyPlayed({ track, index, chooseTrack }) {
   };
 
   return (
-    <div className="flex items-center space-x-3">
+    <div className="flex items-center space-x-3" onClick={handlePlay}>
       <img
         src={track.albumUrl}
         alt="album art"
