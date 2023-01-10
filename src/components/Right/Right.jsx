@@ -11,7 +11,6 @@ export default function Right({ accessToken, spotifyApi, chooseTrack }) {
 
   useEffect(() => {
     if (!accessToken) return;
-    if (!spotifyApi) return;
 
     spotifyApi.getMyRecentlyPlayedTracks({ limit: 20 }).then((res) => {
       setRecentPlayed(
@@ -27,8 +26,6 @@ export default function Right({ accessToken, spotifyApi, chooseTrack }) {
       );
     });
   }, [accessToken, spotifyApi]);
-
-  console.log(recentlyPlayed);
 
   return (
     <div className="p-4 space-y-8 pr-8">
@@ -48,7 +45,9 @@ export default function Right({ accessToken, spotifyApi, chooseTrack }) {
               />
             ))}
           </div>
-          <button className="btn">View all</button>
+          <button className="text-[13px] py-3.5 px-4 rounded-2xl w-full font-bold border">
+            View all
+          </button>
         </div>
       </div>
     </div>

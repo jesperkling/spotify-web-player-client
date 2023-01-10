@@ -24,10 +24,8 @@ export default function Player({ accessToken, trackUri }) {
       showSaveIcon
       callback={(state) => {
         setPlay(state.isPlaying);
-        console.log(state);
       }}
       magnifySliderOnHover={true}
-      autoPlay={true}
     />
   );
 }

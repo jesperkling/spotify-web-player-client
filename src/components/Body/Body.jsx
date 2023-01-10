@@ -23,7 +23,10 @@ export default function Body({ accessToken, spotifyApi, chooseTrack }) {
     if (!search) return setResults([]);
     if (!accessToken) return;
 
+    let cancel = false;
+
     spotifyApi.searchTracks(search).then((res) => {
+      if (cancel) return;
       setResults(
         res.body.tracks.items.map((track) => {
           return {
@@ -37,9 +40,9 @@ export default function Body({ accessToken, spotifyApi, chooseTrack }) {
         })
       );
     });
-  }, [accessToken, search, spotifyApi]);
 
-  console.log(results);
+    return () => (cancel = true);
+  }, [accessToken, search, spotifyApi]);
 
   useEffect(() => {
     if (!accessToken) return;
@@ -59,8 +62,6 @@ export default function Body({ accessToken, spotifyApi, chooseTrack }) {
       );
     });
   }, [accessToken, spotifyApi]);
-
-  console.log(newReleases);
 
   return (
     <div className="ml-24 py-4 space-y-8 md:max-w-6l flex-grow md:mr-2.5">
