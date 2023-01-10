@@ -19,6 +19,7 @@
     "recoil": "^0.7.6",
     "spotify-web-api-js": "^1.5.2",
     "spotify-web-api-node": "^5.0.2",
+    "vercel": "^28.11.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

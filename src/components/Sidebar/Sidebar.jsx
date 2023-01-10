@@ -1,8 +1,5 @@
 import React from "react";
 
-// styles
-import "./Sidebar.css";
-
 // logo
 import Logo from "../../assets/images/spotify-color-svgrepo-com.svg";
 
@@ -18,7 +15,7 @@ export default function Sidebar() {
   return (
     <div className="fixed border top-0 z-40 flex flex-col p-4 items-center w-[90px] h-screen space-y-8">
       <img src={Logo} alt="logo" />
-      <div className="flex flex-col space-y-8">
+      <div className="flex flex-col cursor-pointer space-y-8">
         <HiHome className="sidebarIcon" />
         <RiCompassFill className="sidebarIcon" />
         <FaMicrophone className="sidebarIcon" />
