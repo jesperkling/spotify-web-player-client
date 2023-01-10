@@ -16,7 +16,7 @@ import { HiDotsHorizontal } from "react-icons/hi";
 
 export default function Sidebar() {
   return (
-    <div className="fixed top-0 z-40 flex flex-col p-4 items-center w-[90px] h-screen space-y-8">
+    <div className="fixed border top-0 z-40 flex flex-col p-4 items-center w-[90px] h-screen space-y-8">
       <img src={Logo} alt="logo" />
       <div className="flex flex-col space-y-8">
         <HiHome className="sidebarIcon" />
