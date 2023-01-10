@@ -31,7 +31,7 @@ export default function Right({ accessToken, spotifyApi, chooseTrack }) {
     <div className="p-4 space-y-8 pr-8">
       <div className="flex space-x-2 items-center justify-between">
         {/* Recently played tracks */}
-        <div className="border-2 border-[#262626] p-4 rounded-xl space-y-4">
+        <div className="border-2 p-4 rounded-xl space-y-4">
           <div className="flex items-center justify-between">
             <h4 className="font-semibold text-sm">Recently Played</h4>
             <HiViewGrid className="text-[#686868] h-6" />
