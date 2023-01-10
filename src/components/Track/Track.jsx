@@ -20,7 +20,6 @@ export default function Track({ track, chooseTrack }) {
     if (track.uri === playingTrack.uri) {
       setPlay(!play);
     }
-    console.log(playingTrack);
   };
 
   return (
