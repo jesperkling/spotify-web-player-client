@@ -4,7 +4,7 @@ import React from "react";
 import { useRecoilState } from "recoil";
 import { playingTrackState, playState } from "../../atoms/playerAtom";
 
-export default function RecentlyPlayed({ track, index, chooseTrack }) {
+export default function RecentlyPlayed({ track, chooseTrack }) {
   const [play, setPlay] = useRecoilState(playState);
   const [playingTrack, setPlayingTrack] = useRecoilState(playingTrackState);
 

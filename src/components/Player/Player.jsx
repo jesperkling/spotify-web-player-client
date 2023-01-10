@@ -1,25 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+
 import SpotifyPlayer from "react-spotify-web-playback";
 
+import { useRecoilState } from "recoil";
+import { playState } from "../../atoms/playerAtom";
+
 export default function Player({ accessToken, trackUri }) {
-  const [play, setPlay] = useState(false);
+  const [play, setPlay] = useRecoilState(playState);
 
   useEffect(() => {
-    setPlay(true);
-  }, [trackUri]);
+    if (trackUri) {
+      setPlay(true);
+    }
+  }, [trackUri, setPlay]);
 
   if (!accessToken) return null;
+
   return (
     <SpotifyPlayer
       token={accessToken}
-      showSaveIcon
-      callback={(state) => {
-        if (!state.isPlaying) {
-          setPlay(false);
-        }
-      }}
       play={play}
       uris={trackUri ? [trackUri] : []}
+      showSaveIcon
+      callback={(state) => {
+        setPlay(state.isPlaying);
+        console.log(state);
+      }}
+      magnifySliderOnHover={true}
+      autoPlay={true}
     />
   );
 }

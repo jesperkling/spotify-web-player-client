@@ -58,7 +58,7 @@ export default function Body({ accessToken, spotifyApi, chooseTrack }) {
         })
       );
     });
-  }, [accessToken, spotifyApi, newReleases]);
+  }, [accessToken, spotifyApi]);
 
   console.log(newReleases);
 
