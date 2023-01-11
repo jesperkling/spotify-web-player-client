@@ -1,28 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import "./Sidebar.css";
+import SidebarButton from "../SidebarButton/SidebarButton";
+import apiClient from "../../api/Spotify";
 
 // logo
 import Logo from "../../assets/images/spotify-color-svgrepo-com.svg";
+import Avatar from "../../assets/images/user.png";
 
 // icons
-import { HiHome } from "react-icons/hi";
-import { RiCompassFill } from "react-icons/ri";
-import { FaMicrophone } from "react-icons/fa";
-import { HiChartBar } from "react-icons/hi";
-import { ImClock } from "react-icons/im";
-import { HiDotsHorizontal } from "react-icons/hi";
+import { MdFavorite, MdSpaceDashboard } from "react-icons/md";
+import { FaGripfire, FaPlay, FaSearch, FaSignOutAlt } from "react-icons/fa";
+import { IoLibrary } from "react-icons/io5";
 
 export default function Sidebar() {
+  const [image, setImage] = useState(Avatar);
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    apiClient.get("me").then((response) => {
+      console.log(response);
+      setImage(response.data.images[0].url);
+      setName(response.data.display_name);
+    });
+  }, []);
+
   return (
-    <div className="fixed border top-0 z-40 flex flex-col p-4 items-center w-[90px] h-screen space-y-8">
-      <img src={Logo} alt="logo" />
-      <div className="flex flex-col cursor-pointer space-y-8">
-        <HiHome className="sidebarIcon" />
-        <RiCompassFill className="sidebarIcon" />
-        <FaMicrophone className="sidebarIcon" />
-        <HiChartBar className="sidebarIcon" />
-        <ImClock className="sidebarIcon " />
-        <HiDotsHorizontal className="sidebarIcon" />
+    <div className="sidebar-container">
+      {/* <img src={Logo} alt="logo" className="logo" /> */}
+      <img src={image} className="profile-img" alt="user-avatar" />
+
+      <div>
+        <SidebarButton title="Feed" to="/feed" icon={<MdSpaceDashboard />} />
+        <SidebarButton title="Search" to="/search" icon={<FaSearch />} />
+        <SidebarButton title="Trending" to="/trending" icon={<FaGripfire />} />
+        <SidebarButton title="Player" to="/player" icon={<FaPlay />} />
+        <SidebarButton
+          title="Favorites"
+          to="/favorites"
+          icon={<MdFavorite />}
+        />
+        <SidebarButton title="Library" to="/" icon={<IoLibrary />} />
       </div>
+      <SidebarButton title="Sign Out" to="" icon={<FaSignOutAlt />} />
     </div>
   );
 }

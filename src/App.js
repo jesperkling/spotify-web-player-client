@@ -1,13 +1,10 @@
 import './App.css'
-
-import Login from './components/Login/Login'
-import Dashboard from './components/Dashboard/Dashboard'
-
-
-const code = new URLSearchParams(window.location.search).get('code')
+import Home from './components/Home/Home';
 
 function App() {
-  return code ? <Dashboard code={code} /> : <Login />;
+  return (
+    <div><Home /></div>
+  )   
 }
 
 export default App;
