@@ -4,3 +4,7 @@
     background-color: #1E2A3E;
     /* border-radius: 30px; */
 }
+
+.flex {
+    display: flex;
+}
