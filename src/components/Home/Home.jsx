@@ -44,9 +44,9 @@ export default function Home() {
           <Route path="/" element={<Library />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/trending" element={<Trending />} />
-          <Route path="/player" element={<Player />} />
+          <Route path="/player" element={<Player token={token} />} />
           <Route path="/favorites" element={<Favorites />} />
-          <Route path="/search" element={<Search />} />
+          <Route path="/search" element={<Search token={token} />} />
         </Routes>
       </div>
     </Router>
