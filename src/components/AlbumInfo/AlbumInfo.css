@@ -1,0 +1,23 @@
+.album-info-card {
+    margin-top: 20px;
+    width: 80%;
+}
+
+.album-info-card p {
+    margin: 0px;
+}
+
+.album-name-container {
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    font-weight: 700;
+    color: #c3d0e3;
+}
+
+.album-release {
+    font-size: 14px;
+    font-weight: 500;
+    color: #c3d0e3;
+    margin-top: 10px;
+}
