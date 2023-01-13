@@ -4,6 +4,7 @@ import apiClient from "../../api/Spotify";
 import SongCard from "../../components/SongCard/SongCard";
 import Queue from "../../components/Queue/Queue";
 import MusicPlayer from "../MusicPlayer/MusicPlayer";
+import Widgets from "../Widgets/Widgets";
 import "./Player.css";
 
 export default function Player({ token }) {
@@ -45,6 +46,9 @@ export default function Player({ token }) {
       ) : null}
       <div className="right-player-body">
         <MusicPlayer token={token} trackUri={trackUri} />
+      </div>
+      <div>
+        <Widgets artistID={currentTrack?.album?.artists[0]?.id} />
       </div>
     </div>
   );
