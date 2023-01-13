@@ -23,7 +23,6 @@ export default function Home() {
     window.location.hash = "";
     if (!token && hash) {
       const _token = hash.split("&")[0].split("=")[1];
-      console.log(1, _token);
       window.localStorage.setItem("token", _token);
       setToken(_token);
       setClientToken(_token);

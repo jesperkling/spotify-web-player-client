@@ -7,16 +7,14 @@ export default function Trending() {
   useEffect(() => {
     apiClient.get("browse/new-releases").then((response) => {
       setNewReleases(response.data.albums.items);
-      console.log(response.data.albums.items);
     });
   }, []);
 
-  console.log("new releases:", newReleases);
   return (
     <div className="screen-container">
       {newReleases?.map((releases) => {
         return (
-          <div>
+          <div key={releases.id}>
             <img src={releases.images[2].url} alt="album-art" />
             <p>{releases.name}</p>
             <p>{releases.artists[0].name}</p>

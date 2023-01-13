@@ -21,19 +21,13 @@ export default function Player({ token }) {
         .then((response) => {
           setTracks(response.data.items);
           setCurrentTrack(response.data.items[0].track);
-          console.log(response);
         });
     }
   }, [location.state]);
 
   useEffect(() => {
-    console.log("token:", token);
-  }, [token]);
-
-  useEffect(() => {
     setCurrentTrack(tracks[currentIndex]?.track);
     setTrackUri(currentTrack?.uri);
-    console.log(trackUri);
   }, [currentIndex, tracks, currentTrack, trackUri]);
 
   return (

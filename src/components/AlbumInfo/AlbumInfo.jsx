@@ -7,7 +7,6 @@ export default function AlbumInfo({ album }) {
   const [artist, setArtist] = useState("");
 
   useEffect(() => {
-    console.log(album?.artists[0].name);
     setAlbumName(album?.name);
     setArtist(album?.artists[0].name);
   }, [album]);
