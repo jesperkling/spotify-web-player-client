@@ -41,7 +41,7 @@ export default function Home() {
         <Sidebar />
         <Routes>
           <Route path="*" element={<Library />} />
-          <Route path="/" element={<Library />} />
+          <Route path="/library" element={<Library />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/trending" element={<Trending />} />
           <Route path="/player" element={<Player token={token} />} />

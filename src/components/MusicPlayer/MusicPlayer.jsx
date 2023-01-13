@@ -12,6 +12,7 @@ export default function MusicPlayer({ token, trackUri, chooseTrack }) {
 
   return (
     <SpotifyPlayer
+      autoPlay
       callback={(state) => {
         if (!state.isPlaying) setPlay(false);
       }}
