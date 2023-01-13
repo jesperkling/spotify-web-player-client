@@ -26,6 +26,7 @@ export default function Favorites() {
 
   return (
     <div className="screen-container">
+      <h3>Liked songs</h3>
       {favorites?.map((songs) => {
         return (
           <div key={songs.track.id}>
@@ -34,7 +35,7 @@ export default function Favorites() {
           </div>
         );
       })}
-
+      <h3>Top Artists</h3>
       {topArtists?.map((artist) => {
         return (
           <div key={artist.id}>
@@ -44,6 +45,7 @@ export default function Favorites() {
         );
       })}
 
+      <h3>Top Tracks</h3>
       {topTracks?.map((track) => {
         return (
           <div key={track.id}>
