@@ -9,7 +9,7 @@ export default function Queue({ tracks, setCurrentIndex }) {
         <div className="queue-list">
           {tracks?.map((track, index) => (
             <div
-              key={track.id}
+              key={track?.track.id}
               className="queue-item flex"
               onClick={() => setCurrentIndex(index)}
             >

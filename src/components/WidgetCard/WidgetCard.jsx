@@ -10,6 +10,7 @@ export default function WidgetCard({ title, similar, featured, newReleases }) {
       {similar
         ? similar.map((artist) => (
             <WidgetEntry
+              key={artist.id}
               title={artist?.name}
               subtitle={artist?.followers?.total + " Followers"}
               image={artist?.images[2]?.url}
@@ -18,6 +19,7 @@ export default function WidgetCard({ title, similar, featured, newReleases }) {
         : featured
         ? featured.map((playlist) => (
             <WidgetEntry
+              key={playlist.id}
               title={playlist?.name}
               subtitle={playlist?.tracks?.total + " Songs"}
               image={playlist?.images[0]?.url}
@@ -26,6 +28,7 @@ export default function WidgetCard({ title, similar, featured, newReleases }) {
         : newReleases
         ? newReleases.map((album) => (
             <WidgetEntry
+              key={album.id}
               title={album?.name}
               subtitle={album?.artists[0]?.name}
               image={album?.images[2].url}

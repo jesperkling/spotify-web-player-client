@@ -16,7 +16,7 @@ export default function MusicPlayer({ token, trackUri, chooseTrack }) {
       callback={(state) => {
         if (!state.isPlaying) setPlay(false);
       }}
-      play={true}
+      play={play}
       token={token}
       uris={trackUri ? [trackUri] : []}
       showSaveIcon
