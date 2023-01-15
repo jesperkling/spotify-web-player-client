@@ -5,7 +5,6 @@ import SongCard from "../../components/SongCard/SongCard";
 import Queue from "../../components/Queue/Queue";
 import MusicPlayer from "../MusicPlayer/MusicPlayer";
 import Widgets from "../Widgets/Widgets";
-import "./Player.css";
 
 export default function Player({ token }) {
   const location = useLocation();
@@ -31,18 +30,18 @@ export default function Player({ token }) {
   }, [currentIndex, tracks, currentTrack, trackUri]);
 
   return (
-    <div className="screen-container flex">
+    <div className="screen-container overflow-auto">
       {tracks.length >= 1 ? (
-        <div className="left-player-body">
+        <div className="">
           <SongCard album={currentTrack?.album} />
           <Queue tracks={tracks} setCurrentIndex={setCurrentIndex} />
         </div>
       ) : null}
-      <div className="right-player-body">
-        <MusicPlayer token={token} trackUri={trackUri} />
-      </div>
       <div>
         <Widgets artistID={currentTrack?.album?.artists[0]?.id} />
+      </div>
+      <div className="fixed w-full bottom-0">
+        <MusicPlayer token={token} trackUri={trackUri} />
       </div>
     </div>
   );

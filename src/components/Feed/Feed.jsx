@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import apiClient from "../../api/Spotify";
 
-export default function Feed() {
+export default function Feed({ track, chooseTrack }) {
   const [topLists, setTopLists] = useState(null);
 
   useEffect(() => {

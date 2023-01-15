@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import "./AlbumInfo.css";
 
 export default function AlbumInfo({ album }) {
   const [albumName, setAlbumName] = useState("");
@@ -12,12 +11,12 @@ export default function AlbumInfo({ album }) {
   }, [album]);
 
   return (
-    <div className="album-info-card">
-      <div className="album-name-container">
-        <p className="">{albumName}</p>
-        <p className="text-[14px]">{artist}</p>
+    <div className="p-2 ">
+      <div className="">
+        <p className="text-white font-bold">{albumName}</p>
+        <p className="text-[14px] text-white">{artist}</p>
       </div>
-      <div className="album-release">
+      <div className="text-[14px] text-white">
         <p>Release Date: {album?.release_date}</p>
       </div>
     </div>

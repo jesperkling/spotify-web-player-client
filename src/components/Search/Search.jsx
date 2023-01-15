@@ -7,7 +7,7 @@ const spotifyApi = new SpotifyWebApi({
   clientId: "2353e1ccf7464652a66074ee88dc47b5",
 });
 
-export default function Search({ token, trackUri }) {
+export default function Search({ token }) {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [playingTrack, setPlayingTrack] = useState();
@@ -49,7 +49,7 @@ export default function Search({ token, trackUri }) {
   }, [search, token]);
 
   return (
-    <div className="screen-container">
+    <div className="screen-container overflow-auto">
       <input
         type="search"
         value={search}
@@ -66,7 +66,7 @@ export default function Search({ token, trackUri }) {
           />
         ))}
       </div>
-      <div>
+      <div className="fixed bottom-0 w-full">
         <MusicPlayer token={token} trackUri={playingTrack?.uri} />
       </div>
     </div>
