@@ -21,7 +21,7 @@ export default function Feed() {
     <div className="screen-container">
       {topLists?.map((list) => {
         return (
-          <div>
+          <div key={list.id}>
             <img
               src={list.images[0].url}
               alt="playlist-art"
