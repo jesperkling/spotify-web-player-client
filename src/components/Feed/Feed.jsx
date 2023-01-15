@@ -18,16 +18,16 @@ export default function Feed() {
   };
 
   return (
-    <div className="screen-container">
+    <div className="screen-container grid grid-cols-3 gap-4 p-4 overflow-auto">
       {topLists?.map((list) => {
         return (
-          <div key={list.id}>
+          <div key={list.id} className="">
             <img
               src={list.images[0].url}
               alt="playlist-art"
               onClick={() => playTopList(list.id)}
+              className="cursor-pointer"
             />
-            <p>{list.description}</p>
           </div>
         );
       })}
