@@ -25,36 +25,66 @@ export default function Favorites() {
   }, []);
 
   return (
-    <div className="screen-container">
-      <h3>Liked songs</h3>
-      {favorites?.map((songs) => {
-        return (
-          <div key={songs.track.id}>
-            <img src={songs.track.album.images[2].url} alt="album-art" />
-            <p>{songs.track.name}</p>
-          </div>
-        );
-      })}
-      <h3>Top Artists</h3>
-      {topArtists?.map((artist) => {
-        return (
-          <div key={artist.id}>
-            <img src={artist.images[2].url} alt="artist" />
-            <p>{artist.name}</p>
-          </div>
-        );
-      })}
-
-      <h3>Top Tracks</h3>
-      {topTracks?.map((track) => {
-        return (
-          <div key={track.id}>
-            <img src={track.album.images[2].url} alt="album-art" />
-            <p>{track.name}</p>
-            <p>{track.artists[0].name}</p>
-          </div>
-        );
-      })}
+    <div className="screen-container grid grid-cols-3 gap-4 overflow-auto p-4">
+      <div className="">
+        <h3 className="text-white font-bold p-2">Liked songs</h3>
+        {favorites?.map((songs) => {
+          return (
+            <div key={songs.track.id} className="flex py-2">
+              <div className="p-2">
+                <img
+                  src={songs.track.album.images[2].url}
+                  alt="album-art"
+                  className="h-9 w-9 rounded"
+                />
+              </div>
+              <div className="flex-col">
+                <p className="text-white font-bold">{songs.track.name}</p>
+                <p className="text-white/50">{songs.track.artists[0].name}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="">
+        <h3 className="text-white font-bold p-2">Top Artists</h3>
+        {topArtists?.map((artist) => {
+          return (
+            <div key={artist.id} className="flex py-2">
+              <div className="p-2">
+                <img
+                  src={artist.images[0].url}
+                  alt="artist"
+                  className="h-9 w-9 rounded"
+                />
+              </div>
+              <div>
+                <p className="text-white font-bold">{artist.name}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="">
+        <h3 className="text-white font-bold py-2">Top Tracks</h3>
+        {topTracks?.map((track) => {
+          return (
+            <div key={track.id} className="flex py-2">
+              <div className="p-2">
+                <img
+                  src={track.album.images[2].url}
+                  alt="album-art"
+                  className="rounded h-9 w-9"
+                />
+              </div>
+              <div className="flex-col">
+                <p className="text-white font-bold">{track.name}</p>
+                <p className="text-white/50">{track.artists[0].name}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

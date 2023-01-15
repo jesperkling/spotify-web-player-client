@@ -28,7 +28,7 @@ export default function Library() {
                 alt="playlist-art"
                 className="cursor-pointer"
               />
-              <p className="text-white">{playlist.name}</p>
+              <p className="text-white font-bold">{playlist.name}</p>
               <p className="text-white/50">{playlist.tracks.total} Songs</p>
             </div>
           );
