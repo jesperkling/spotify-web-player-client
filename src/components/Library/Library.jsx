@@ -19,14 +19,14 @@ export default function Library() {
 
   return (
     <div className="screen-container">
-      <div className="p-2 grid grid-cols-3 gap-4 overflow-auto">
+      <div className="p-2 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 overflow-auto">
         {playlists?.map((playlist) => {
           return (
             <div key={playlist.id} onClick={() => playPlaylist(playlist.id)}>
               <img
                 src={playlist.images[0].url}
                 alt="playlist-art"
-                className="cursor-pointer"
+                className="cursor-pointer rounded"
               />
               <p className="text-white font-bold">{playlist.name}</p>
               <p className="text-white/50">{playlist.tracks.total} Songs</p>
