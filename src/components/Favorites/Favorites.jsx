@@ -26,7 +26,7 @@ export default function Favorites() {
 
   return (
     <div className="screen-container grid grid-cols-3 gap-4 overflow-auto p-4">
-      <div className="">
+      <div className="border">
         <h3 className="text-white font-bold p-2">Liked songs</h3>
         {favorites?.map((songs) => {
           return (
@@ -46,7 +46,7 @@ export default function Favorites() {
           );
         })}
       </div>
-      <div className="">
+      <div className="border">
         <h3 className="text-white font-bold p-2">Top Artists</h3>
         {topArtists?.map((artist) => {
           return (
@@ -65,8 +65,8 @@ export default function Favorites() {
           );
         })}
       </div>
-      <div className="">
-        <h3 className="text-white font-bold py-2">Top Tracks</h3>
+      <div className="border">
+        <h3 className="text-white font-bold p-2">Top Tracks</h3>
         {topTracks?.map((track) => {
           return (
             <div key={track.id} className="flex py-2">
