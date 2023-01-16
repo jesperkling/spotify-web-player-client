@@ -11,7 +11,7 @@ export default function Trending() {
   }, []);
 
   return (
-    <div className="screen-container grid grid-cols-4 gap-4 p-4 overflow-auto">
+    <div className="screen-container grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 p-4 overflow-auto">
       {newReleases?.map((releases) => {
         return (
           <div key={releases.id}>
