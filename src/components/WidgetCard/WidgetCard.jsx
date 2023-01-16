@@ -1,47 +1,19 @@
 import React from "react";
 import WidgetEntry from "../WidgetEntry/WidgetEntry";
-import { IconContext } from "react-icons";
-import { FiChevronRight } from "react-icons/fi";
 
-export default function WidgetCard({ title, similar, featured, newReleases }) {
+export default function WidgetCard({ title, similar }) {
   return (
     <div>
-      <p>{title}</p>
+      <p className="text-white font-bold py-2">{title}</p>
       {similar
         ? similar.map((artist) => (
             <WidgetEntry
               key={artist.id}
               title={artist?.name}
-              subtitle={artist?.followers?.total + " Followers"}
               image={artist?.images[2]?.url}
             />
           ))
-        : featured
-        ? featured.map((playlist) => (
-            <WidgetEntry
-              key={playlist.id}
-              title={playlist?.name}
-              subtitle={playlist?.tracks?.total + " Songs"}
-              image={playlist?.images[0]?.url}
-            />
-          ))
-        : newReleases
-        ? newReleases.map((album) => (
-            <WidgetEntry
-              key={album.id}
-              title={album?.name}
-              subtitle={album?.artists[0]?.name}
-              image={album?.images[2].url}
-            />
-          ))
         : null}
-      <div>
-        <div>
-          <IconContext.Provider value={{ size: "24px", color: "#c4d0e3" }}>
-            <FiChevronRight />
-          </IconContext.Provider>
-        </div>
-      </div>
     </div>
   );
 }

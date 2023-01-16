@@ -1,13 +1,11 @@
 import React from "react";
-import "./WidgetEntry.css";
 
-export default function WidgetEntry({ title, subtitle, image }) {
+export default function WidgetEntry({ title, image }) {
   return (
-    <div className="flex">
-      <img src={image} alt={title} className="widget-entry-image" />
-      <div className="widget-entry-right-body flex">
-        <p className="widget-entry-title">{title}</p>
-        <p className="widget-entry-subtitle">{subtitle}</p>
+    <div className="flex py-2">
+      <img src={image} alt={title} className="rounded h-[58px] w-[58px]" />
+      <div className="p-2">
+        <p className="text-white font-bold">{title}</p>
       </div>
     </div>
   );

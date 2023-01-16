@@ -1,5 +1,4 @@
 import React from "react";
-// import "./AlbumImage.css";
 
 export default function AlbumImage({ url }) {
   return (
