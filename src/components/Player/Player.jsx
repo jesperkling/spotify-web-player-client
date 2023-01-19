@@ -33,17 +33,24 @@ export default function Player({ token }) {
     <div className="screen-container overflow-auto">
       <div className="grid grid-cols-2">
         {tracks.length >= 1 ? (
-          <div className="">
-            <SongCard album={currentTrack?.album} />
-            <Queue tracks={tracks} setCurrentIndex={setCurrentIndex} />
+          <>
+            <div className="">
+              <SongCard album={currentTrack?.album} />
+              <Queue tracks={tracks} setCurrentIndex={setCurrentIndex} />
+            </div>
+            <div>
+              <Widgets artistID={currentTrack?.album?.artists[0]?.id} />
+            </div>
+          </>
+        ) : (
+          <div className="text-white flex font-bold text-center">
+            <p className="text-center p-6">No song playing...</p>
           </div>
-        ) : null}
-        <div>
-          <Widgets artistID={currentTrack?.album?.artists[0]?.id} />
+        )}
+
+        <div className="fixed w-full bottom-0">
+          <MusicPlayer token={token} trackUri={trackUri} />
         </div>
-      </div>
-      <div className="fixed w-full bottom-0">
-        <MusicPlayer token={token} trackUri={trackUri} />
       </div>
     </div>
   );
