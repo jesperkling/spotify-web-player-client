@@ -5,15 +5,12 @@ export default function TrackSearchResult({ track, chooseTrack }) {
     chooseTrack(track);
   };
   return (
-    <div
-      className="m-2 overflow-auto flex"
-      style={{ cursor: "pointer" }}
-      onClick={handlePlay}
-    >
+    <div className="m-2 overflow-auto flex">
       <img
         src={track.albumUrl}
-        style={{ height: "64px", width: "64px" }}
+        style={{ height: "64px", width: "64px", cursor: "pointer" }}
         alt="album-art"
+        onClick={handlePlay}
       />
       <div className="ml-3">
         <div className="text-white font-bold">{track.title}</div>
