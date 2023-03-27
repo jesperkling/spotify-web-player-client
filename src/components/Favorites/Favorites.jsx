@@ -25,7 +25,7 @@ export default function Favorites() {
   }, []);
 
   return (
-    <div className="screen-container grid grid-cols-3 gap-4 overflow-auto p-4">
+    <div className="screen-container grid grid-cols-1 gap-4 sm:grid-cols-3 p-4">
       <div className="border">
         <h3 className="text-white font-bold p-2">Liked songs</h3>
         {favorites?.map((songs) => {
