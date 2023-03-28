@@ -5,11 +5,11 @@ export default function Queue({ tracks, setCurrentIndex }) {
     <div className="p-2">
       <div className="p-2 overflow-auto">
         <p className="text-white font-bold">Up Next</p>
-        <div className="">
+        <div>
           {tracks?.map((track, index) => (
             <div
               key={track?.track.id}
-              className="cursor-pointer flex"
+              className="cursor-pointer flex items-center"
               onClick={() => setCurrentIndex(index)}
             >
               <img
@@ -17,12 +17,12 @@ export default function Queue({ tracks, setCurrentIndex }) {
                 alt="album-art"
                 className="rounded py-2"
               />
-              <p className="text-white/75 font-bold m-2 py-4">
-                {track?.track?.name}
-              </p>
-              <p className="text-white/50 m-2 py-4">
-                {track?.track.artists[0].name}
-              </p>
+              <div className="flex flex-col ml-2">
+                <p className="text-white/75 font-bold mb-1">
+                  {track?.track?.name}
+                </p>
+                <p className="text-white/50">{track?.track.artists[0].name}</p>
+              </div>
             </div>
           ))}
         </div>
