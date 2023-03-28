@@ -3,7 +3,7 @@ import React from "react";
 export default function AlbumImage({ url }) {
   return (
     <div className="p-2">
-      <img src={url} alt="album-art" className="rounded h-[100px] w-[100px]" />
+      <img src={url} alt="album-art" className="rounded" />
     </div>
   );
 }
