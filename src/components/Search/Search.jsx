@@ -49,7 +49,7 @@ export default function Search({ token }) {
   }, [search, token]);
 
   return (
-    <div className="screen-container overflow-auto">
+    <div className="screen-container overflow-auto pb-16 lg:pb-8">
       <input
         type="search"
         value={search}
