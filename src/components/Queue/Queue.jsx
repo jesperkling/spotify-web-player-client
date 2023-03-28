@@ -6,11 +6,11 @@ export default function Queue({ tracks, setCurrentIndex }) {
       <div className="p-2 overflow-auto">
         <p className="text-white font-bold">Up Next</p>
         <div>
-          {tracks?.map((track, index) => (
+          {tracks?.slice(1).map((track, index) => (
             <div
               key={track?.track.id}
               className="cursor-pointer flex items-center"
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => setCurrentIndex(index + 1)}
             >
               <img
                 src={track?.track.album.images[2].url}
