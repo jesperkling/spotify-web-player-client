@@ -31,10 +31,10 @@ export default function Player({ token }) {
 
   return (
     <div className="screen-container overflow-auto">
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2">
         {tracks.length >= 1 ? (
           <>
-            <div className="">
+            <div>
               <SongCard album={currentTrack?.album} />
               <Queue tracks={tracks} setCurrentIndex={setCurrentIndex} />
             </div>
