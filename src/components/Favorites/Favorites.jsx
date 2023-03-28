@@ -15,10 +15,15 @@ export default function Favorites() {
 
   const navigate = useNavigate();
 
-  const playSong = async (uri) => {
+  const playLikedSongs = async () => {
     try {
-      await apiClient.put("me/player/play", { uris: [uri] });
-      navigate("/player", { state: { trackUris: [uri] } });
+      const response = await apiClient.get("me/tracks", {
+        params: {
+          limit: 50,
+        },
+      });
+      const uris = response.data.items.map((item) => item.track.uri);
+      navigate("/player", { state: { trackUris: uris } });
     } catch (error) {
       console.error(error);
     }
@@ -44,8 +49,8 @@ export default function Favorites() {
           return (
             <div
               key={songs.track.id}
-              className="flex py-2"
-              onClick={() => playSong(songs.track.uri)}
+              className="flex py-2 cursor-pointer"
+              onClick={() => playLikedSongs(songs.track.uri)}
             >
               <div className="p-2">
                 <img
@@ -85,11 +90,7 @@ export default function Favorites() {
         <h3 className="text-white font-bold p-2">Top Tracks</h3>
         {topTracks?.map((track) => {
           return (
-            <div
-              key={track.id}
-              className="flex py-2"
-              onClick={() => playSong(track.uri)}
-            >
+            <div key={track.id} className="flex py-2">
               <div className="p-2">
                 <img
                   src={track.album.images[2].url}
