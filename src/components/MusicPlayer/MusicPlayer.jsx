@@ -15,9 +15,6 @@ export default function MusicPlayer({ token, trackUri, chooseTrack }) {
       autoPlay
       callback={(state) => {
         if (!state.isPlaying) setPlay(false);
-        if (state.track && chooseTrack) {
-          chooseTrack(state.track);
-        }
       }}
       play={play}
       token={token}

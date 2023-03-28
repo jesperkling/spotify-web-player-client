@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import apiClient from "../../api/Spotify";
 
-export default function Favorites({ token }) {
+export default function Favorites() {
   const [favorites, setFavorites] = useState(null);
   const [topArtists, setTopArtists] = useState(null);
   const [topTracks, setTopTracks] = useState(null);
@@ -12,22 +11,6 @@ export default function Favorites({ token }) {
       setFavorites(response.data.items);
     });
   }, []);
-
-  const navigate = useNavigate();
-
-  const playLikedSongs = async () => {
-    try {
-      const response = await apiClient.get("me/tracks", {
-        params: {
-          limit: 50,
-        },
-      });
-      const uris = response.data.items.map((item) => item.track.uri);
-      navigate("/player", { state: { trackUris: uris, token: token } });
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   useEffect(() => {
     apiClient.get(`me/top/artists`).then((response) => {
@@ -47,11 +30,7 @@ export default function Favorites({ token }) {
         <h3 className="text-white font-bold p-2">Liked songs</h3>
         {favorites?.map((songs) => {
           return (
-            <div
-              key={songs.track.id}
-              className="flex py-2 cursor-pointer"
-              onClick={() => playLikedSongs(songs.track.uri)}
-            >
+            <div key={songs.track.id} className="flex py-2 cursor-pointer">
               <div className="p-2">
                 <img
                   src={songs.track.album.images[2].url}
