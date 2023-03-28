@@ -55,7 +55,7 @@ export default function Search({ token }) {
         value={search}
         placeholder="Search"
         onChange={(e) => setSearch(e.target.value)}
-        className="border-none w-full lg:w-full focus:ring-0 outline-none text-xs focus:placeholder-transparent"
+        className="border-none w-full lg:w-full focus:ring-0 outline-none text-xs focus:placeholder-transparent h-8"
       />
       <div className="flex-grow-1 my-2" style={{ overflowY: "auto" }}>
         {searchResults?.map((track) => (
