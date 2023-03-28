@@ -13,6 +13,9 @@ export default function MusicPlayer({ token, trackUri, chooseTrack }) {
   return (
     <SpotifyPlayer
       autoPlay
+      initialVolume={100}
+      syncExternalDevice
+      persistDeviceSelection
       callback={(state) => {
         if (!state.isPlaying) setPlay(false);
       }}
