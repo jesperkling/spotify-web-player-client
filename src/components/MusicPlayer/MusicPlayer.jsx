@@ -20,6 +20,16 @@ export default function MusicPlayer({ token, trackUri, chooseTrack }) {
       token={token}
       uris={trackUri ? [trackUri] : []}
       showSaveIcon
+      styles={{
+        activeColor: "#fff",
+        bgColor: "#6495ed",
+        color: "#fff",
+        loaderColor: "#fff",
+        sliderColor: "#1cb954",
+        trackArtistColor: "#ccc",
+        trackNameColor: "#fff",
+        height: "55px",
+      }}
     />
   );
 }
