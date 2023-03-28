@@ -30,7 +30,7 @@ export default function Favorites() {
         <h3 className="text-white font-bold p-2">Liked songs</h3>
         {favorites?.map((songs) => {
           return (
-            <div key={songs.track.id} className="flex py-2 cursor-pointer">
+            <div key={songs.track.id} className="flex py-2">
               <div className="p-2">
                 <img
                   src={songs.track.album.images[2].url}
