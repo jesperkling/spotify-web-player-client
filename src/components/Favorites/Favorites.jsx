@@ -15,8 +15,13 @@ export default function Favorites() {
 
   const navigate = useNavigate();
 
-  const playSong = (uri) => {
-    navigate("/player", { state: { trackUris: [uri] } });
+  const playSong = async (uri) => {
+    try {
+      await apiClient.put("me/player/play", { uris: [uri] });
+      navigate("/player", { state: { trackUris: [uri] } });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
