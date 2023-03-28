@@ -8,7 +8,7 @@ import Avatar from "../../assets/images/user.png";
 
 // icons
 import { MdFavorite, MdSpaceDashboard } from "react-icons/md";
-import { FaGripfire, FaPlay, FaSearch } from "react-icons/fa";
+import { FaPlay, FaSearch } from "react-icons/fa";
 import { IoLibrary } from "react-icons/io5";
 
 export default function Sidebar() {
@@ -27,7 +27,6 @@ export default function Sidebar() {
       <div>
         <SidebarButton title="Feed" to="/feed" icon={<MdSpaceDashboard />} />
         <SidebarButton title="Search" to="/search" icon={<FaSearch />} />
-        <SidebarButton title="Trending" to="/trending" icon={<FaGripfire />} />
         <SidebarButton title="Player" to="/player" icon={<FaPlay />} />
         <SidebarButton
           title="Favorites"

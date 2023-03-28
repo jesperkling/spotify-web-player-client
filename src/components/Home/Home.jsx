@@ -7,7 +7,6 @@ import "./Home.css";
 
 import Library from "../Library/Library";
 import Feed from "../Feed/Feed";
-import Trending from "../Trending/Trending";
 import Player from "../Player/Player";
 import Favorites from "../Favorites/Favorites";
 import Search from "../Search/Search";
@@ -42,7 +41,6 @@ export default function Home() {
           <Route path="*" element={<Feed />} />
           <Route path="/library" element={<Library />} />
           <Route path="/feed" element={<Feed />} />
-          <Route path="/trending" element={<Trending />} />
           <Route path="/player" element={<Player token={token} />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/search" element={<Search token={token} />} />
