@@ -4,9 +4,8 @@ export default function Queue({ tracks, setCurrentIndex }) {
   return (
     <div className="p-2">
       <div className="p-2 overflow-auto">
-        <p className="text-white font-bold">Up Next</p>
         <div>
-          {tracks?.slice(1).map((track, index) => (
+          {tracks?.map((track, index) => (
             <div
               key={track?.track.id}
               className="cursor-pointer flex items-center"
@@ -15,7 +14,7 @@ export default function Queue({ tracks, setCurrentIndex }) {
                 src={track?.track.album.images[2].url}
                 alt="album-art"
                 className="rounded py-2"
-                onClick={() => setCurrentIndex(index + 1)}
+                onClick={() => setCurrentIndex(index)}
               />
               <div className="flex flex-col ml-2">
                 <p className="text-white/75 font-bold mb-1">
