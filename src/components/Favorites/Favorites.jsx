@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import apiClient from "../../api/Spotify";
 
 export default function Favorites() {
@@ -11,6 +12,12 @@ export default function Favorites() {
       setFavorites(response.data.items);
     });
   }, []);
+
+  const navigate = useNavigate();
+
+  const playSong = (uri) => {
+    navigate("/player", { state: { trackUris: [uri] } });
+  };
 
   useEffect(() => {
     apiClient.get(`me/top/artists`).then((response) => {
@@ -30,7 +37,11 @@ export default function Favorites() {
         <h3 className="text-white font-bold p-2">Liked songs</h3>
         {favorites?.map((songs) => {
           return (
-            <div key={songs.track.id} className="flex py-2">
+            <div
+              key={songs.track.id}
+              className="flex py-2"
+              onClick={() => playSong(songs.track.uri)}
+            >
               <div className="p-2">
                 <img
                   src={songs.track.album.images[2].url}
@@ -69,7 +80,11 @@ export default function Favorites() {
         <h3 className="text-white font-bold p-2">Top Tracks</h3>
         {topTracks?.map((track) => {
           return (
-            <div key={track.id} className="flex py-2">
+            <div
+              key={track.id}
+              className="flex py-2"
+              onClick={() => playSong(track.uri)}
+            >
               <div className="p-2">
                 <img
                   src={track.album.images[2].url}
