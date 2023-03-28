@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { setClientToken } from "../../api/Spotify";
-import jwt from "jsonwebtoken";
 
 import "./Home.css";
 
@@ -33,20 +32,9 @@ export default function Home() {
     }
   }, []);
 
-  const isLoggedIn = !!token;
-
-  if (!isLoggedIn) {
-    return <Login />;
-  }
-
-  const decodedToken = jwt.decode(token);
-  const currentTime = Math.floor(Date.now() / 1000);
-  if (decodedToken.exp < currentTime) {
-    window.localStorage.removeItem("token");
-    return <Login />;
-  }
-
-  return (
+  return !token ? (
+    <Login />
+  ) : (
     <Router>
       <div className="main-body">
         <Sidebar />
