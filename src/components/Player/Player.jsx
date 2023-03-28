@@ -4,7 +4,6 @@ import apiClient from "../../api/Spotify";
 import SongCard from "../../components/SongCard/SongCard";
 import Queue from "../../components/Queue/Queue";
 import MusicPlayer from "../MusicPlayer/MusicPlayer";
-import Widgets from "../Widgets/Widgets";
 
 export default function Player({ token }) {
   const location = useLocation();
@@ -39,9 +38,6 @@ export default function Player({ token }) {
               <div className="pb-8">
                 <Queue tracks={tracks} setCurrentIndex={setCurrentIndex} />
               </div>
-            </div>
-            <div>
-              <Widgets artistID={currentTrack?.album?.artists[0]?.id} />
             </div>
           </>
         ) : (
