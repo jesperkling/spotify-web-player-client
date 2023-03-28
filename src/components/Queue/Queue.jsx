@@ -10,12 +10,12 @@ export default function Queue({ tracks, setCurrentIndex }) {
             <div
               key={track?.track.id}
               className="cursor-pointer flex items-center"
-              onClick={() => setCurrentIndex(index + 1)}
             >
               <img
                 src={track?.track.album.images[2].url}
                 alt="album-art"
                 className="rounded py-2"
+                onClick={() => setCurrentIndex(index + 1)}
               />
               <div className="flex flex-col ml-2">
                 <p className="text-white/75 font-bold mb-1">
