@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import apiClient from "../../api/Spotify";
 
-export default function Favorites() {
+export default function Favorites({ token }) {
   const [favorites, setFavorites] = useState(null);
   const [topArtists, setTopArtists] = useState(null);
   const [topTracks, setTopTracks] = useState(null);
@@ -23,7 +23,7 @@ export default function Favorites() {
         },
       });
       const uris = response.data.items.map((item) => item.track.uri);
-      navigate("/player", { state: { trackUris: uris } });
+      navigate("/player", { state: { trackUris: uris, token: token } });
     } catch (error) {
       console.error(error);
     }
