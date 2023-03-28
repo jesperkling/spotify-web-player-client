@@ -5,7 +5,7 @@ import AlbumInfo from "../../components/AlbumInfo/AlbumInfo";
 export default function SongCard({ album }) {
   return (
     <div className="p-2">
-      <AlbumImage url={album?.images[0].url} />
+      <AlbumImage url={album?.images[1].url} />
       <AlbumInfo album={album} />
     </div>
   );
