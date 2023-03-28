@@ -3,7 +3,7 @@ import WidgetEntry from "../WidgetEntry/WidgetEntry";
 
 export default function WidgetCard({ title, similar }) {
   return (
-    <div>
+    <div className="p-2">
       <p className="text-white font-bold py-2">{title}</p>
       {similar
         ? similar.map((artist) => (
