@@ -16,7 +16,6 @@ export const setClientToken = (token) => {
         config.headers.Authorization = "Bearer " + token;
         return config;
     });
-    console.log(token)
 };
 
 
