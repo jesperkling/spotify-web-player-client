@@ -36,7 +36,9 @@ export default function Player({ token }) {
           <>
             <div>
               <SongCard album={currentTrack?.album} />
-              <Queue tracks={tracks} setCurrentIndex={setCurrentIndex} />
+              <div className="pb-8">
+                <Queue tracks={tracks} setCurrentIndex={setCurrentIndex} />
+              </div>
             </div>
             <div>
               <Widgets artistID={currentTrack?.album?.artists[0]?.id} />
