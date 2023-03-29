@@ -26,24 +26,15 @@ export default function Home() {
       window.localStorage.setItem("token", _token);
       setToken(_token);
       setClientToken(_token);
-    } else if (token) {
+    } else {
       setToken(token);
       setClientToken(token);
-      const tokenExpirationTime =
-        JSON.parse(atob(token.split(".")[1])).exp * 1000;
-      const currentTime = Date.now();
-      if (currentTime > tokenExpirationTime) {
-        window.localStorage.removeItem("token");
-        setToken("");
-        setClientToken("");
-        return <Login />;
-      }
-    } else {
-      return <Login />;
     }
   }, []);
 
-  return token ? (
+  return !token ? (
+    <Login />
+  ) : (
     <Router>
       <div className="main-body">
         <Sidebar />
@@ -57,7 +48,5 @@ export default function Home() {
         </Routes>
       </div>
     </Router>
-  ) : (
-    <Login />
   );
 }
