@@ -43,7 +43,7 @@ export default function Home() {
     }
   }, []);
 
-  return (
+  return token ? (
     <Router>
       <div className="main-body">
         <Sidebar />
@@ -57,5 +57,7 @@ export default function Home() {
         </Routes>
       </div>
     </Router>
+  ) : (
+    <Login />
   );
 }
