@@ -60,6 +60,7 @@ export default function Search({ token }) {
       <div className="flex-grow-1 my-2 lg:my-0" style={{ overflowY: "auto" }}>
         <div className="flex items-center justify-center h-full text-white">
           {!search && <h3>Search for songs</h3>}
+          {searchResults.length === 0 && search && <h3>No results found</h3>}
         </div>
         {searchResults?.map((track) => (
           <TrackSearchResult
