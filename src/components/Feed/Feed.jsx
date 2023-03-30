@@ -19,9 +19,9 @@ export default function Feed({ track, chooseTrack }) {
 
   return (
     <div className="screen-container grid grid-cols-2 sm:grid-cols-3 gap-4 p-4 overflow-auto">
-      {topLists?.map((list) => {
+      {topLists.slice(0, -1).map((list) => {
         return (
-          <div key={list.id} className="">
+          <div key={list.id}>
             <img
               src={list.images[0].url}
               alt="playlist-art"
