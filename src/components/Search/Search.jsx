@@ -55,9 +55,12 @@ export default function Search({ token }) {
         value={search}
         placeholder="Search"
         onChange={(e) => setSearch(e.target.value)}
-        className="border-none w-full lg:w-full focus:ring-0 outline-none text-xs focus:placeholder-transparent h-8"
+        className="border-none w-full lg:w-full focus:ring-0 outline-none text-xs focus:placeholder-transparent h-8 cursor-pointer"
       />
-      <div className="flex-grow-1 my-2" style={{ overflowY: "auto" }}>
+      <div className="flex-grow-1 my-2 lg:my-0" style={{ overflowY: "auto" }}>
+        <div className="flex items-center justify-center h-full text-white">
+          {!search && <h3>Search for songs</h3>}
+        </div>
         {searchResults?.map((track) => (
           <TrackSearchResult
             track={track}
