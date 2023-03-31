@@ -46,7 +46,7 @@ export default function Player({ token }) {
           </div>
         )}
 
-        <div className="fixed w-full bottom-0">
+        <div className="absolute left-0 right-0 bottom-0">
           <MusicPlayer token={token} trackUri={trackUri} />
         </div>
       </div>

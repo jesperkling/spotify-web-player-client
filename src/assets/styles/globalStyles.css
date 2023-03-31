@@ -3,8 +3,5 @@
     background-color: #1E2A3E;
     overflow: auto;
     width: 100vw;
-}
-
-.flex {
-    display: flex;
+    margin-left: 80px;
 }

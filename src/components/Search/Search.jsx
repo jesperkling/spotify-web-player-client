@@ -70,7 +70,7 @@ export default function Search({ token }) {
           />
         ))}
       </div>
-      <div className="fixed bottom-0 w-full">
+      <div className="absolute left-0 right-0 bottom-0">
         <MusicPlayer token={token} trackUri={playingTrack?.uri} />
       </div>
     </div>
