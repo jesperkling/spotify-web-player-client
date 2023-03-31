@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import APIKit from "../../api/Spotify";
 
 export default function Library() {
-  const [playlists, setPlaylists] = useState(null);
+  const [playlists, setPlaylists] = useState([]);
 
   useEffect(() => {
     APIKit.get("me/playlists").then((response) => {
@@ -24,7 +24,7 @@ export default function Library() {
           return (
             <div key={playlist.id} onClick={() => playPlaylist(playlist.id)}>
               <img
-                src={playlist.images[0].url}
+                src={playlist.images[0]?.url}
                 alt="playlist-art"
                 className="cursor-pointer rounded"
               />
