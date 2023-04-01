@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import apiClient from "../../api/Spotify";
 import MusicPlayer from "../MusicPlayer/MusicPlayer";
-import { AiFillHeart } from "react-icons/ai";
 
 export default function Favorites({ token }) {
   const [favorites, setFavorites] = useState(null);
@@ -9,27 +8,12 @@ export default function Favorites({ token }) {
 
   useEffect(() => {
     apiClient.get("me/tracks").then((response) => {
-      console.log(response.data);
       setFavorites(response.data.items);
     });
   }, []);
 
   const playTrack = (trackUri) => {
     setTrackUri(trackUri);
-  };
-
-  const removeSong = (id) => {
-    apiClient
-      .delete(`me/tracks?ids=${id}`)
-      .then((response) => {
-        const updatedFavorites = favorites.filter(
-          (song) => song.track.id !== id
-        );
-        setFavorites(updatedFavorites);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   };
 
   return (
@@ -47,15 +31,10 @@ export default function Favorites({ token }) {
                   onClick={() => playTrack(songs.track.uri)}
                 />
               </div>
-
               <div>
                 <p className="text-white font-bold">{songs.track.name}</p>
                 <p className="text-white/50">{songs.track.artists[0].name}</p>
               </div>
-
-              <button onClick={() => removeSong(songs.track.id)}>
-                <AiFillHeart className="text-white text-2xl ml-2 sm:ml-4 w-6" />
-              </button>
             </div>
           );
         })}
