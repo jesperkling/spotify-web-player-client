@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SpotifyWebApi from "spotify-web-api-node";
 import MusicPlayer from "../MusicPlayer/MusicPlayer";
 import TrackSearchResult from "../TrackSearchResult/TrackSearchResult";
+import "./Search.css";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "2353e1ccf7464652a66074ee88dc47b5",
@@ -62,13 +63,16 @@ export default function Search({ token }) {
           {!search && <h3>Search for songs</h3>}
           {searchResults.length === 0 && search && <h3>No results found</h3>}
         </div>
-        {searchResults?.map((track) => (
-          <TrackSearchResult
-            track={track}
-            key={track.uri}
-            chooseTrack={chooseTrack}
-          />
-        ))}
+        <div className="search-results">
+          {searchResults?.map((track, index) => (
+            <TrackSearchResult
+              track={track}
+              key={track.uri}
+              chooseTrack={chooseTrack}
+              isLast={index === searchResults.length - 1}
+            />
+          ))}
+        </div>
       </div>
       <div className="absolute left-0 right-0 bottom-0">
         <MusicPlayer token={token} trackUri={playingTrack?.uri} />
