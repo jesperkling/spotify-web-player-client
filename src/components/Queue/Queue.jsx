@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function Queue({ tracks, setCurrentIndex }) {
+  console.log(tracks);
   return (
     <div className="p-2">
       <div className="p-2 overflow-auto">
@@ -9,6 +10,9 @@ export default function Queue({ tracks, setCurrentIndex }) {
             <div
               key={track?.track.id}
               className="cursor-pointer flex items-center"
+              style={
+                index === tracks.length - 1 ? { marginBottom: "70px" } : {}
+              }
             >
               <img
                 src={track?.track.album.images[2].url}
