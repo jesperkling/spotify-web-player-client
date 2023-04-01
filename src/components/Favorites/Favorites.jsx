@@ -22,16 +22,15 @@ export default function Favorites({ token }) {
         <h3 className="text-white font-bold p-2 text-2xl">Liked songs</h3>
         {favorites?.map((songs) => {
           return (
-            <div key={songs.track.id} className="flex py-2">
-              <div className="p-2 flex items-center">
-                <img
-                  src={songs.track.album.images[2].url}
-                  alt="album-art"
-                  className="h-9 w-9 max-w-none rounded cursor-pointer mr-4"
-                  onClick={() => playTrack(songs.track.uri)}
-                />
-              </div>
-              <div>
+            <div key={songs.track.id} className="m-2 overflow-auto flex">
+              <img
+                className="rounded"
+                src={songs.track.album.images[2].url}
+                alt="album-art"
+                style={{ height: "64px", width: "64px", cursor: "pointer" }}
+                onClick={() => playTrack(songs.track.uri)}
+              />
+              <div className="ml-3">
                 <p className="text-white font-bold">{songs.track.name}</p>
                 <p className="text-white/50">{songs.track.artists[0].name}</p>
               </div>
