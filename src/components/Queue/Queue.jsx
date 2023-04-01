@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Queue({ tracks, setCurrentIndex }) {
-  console.log(tracks);
   return (
     <div className="p-2">
       <div className="p-2 overflow-auto">
